@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .component-fade-enter-active, .component-fade-leave-active {
+            transition: opacity .3s ease;
+        }
+        .component-fade-enter, .component-fade-leave-active {
+            opacity: 0;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="transition-components-demo">
+    <transition name="component-fade" mode="out-in">
+        <component v-bind:is="view"></component>
+    </transition>
+</div>
+<script>
+   var vm= new Vue({
+        el: '#transition-components-demo',
+        data: {
+            view: 'v-a'
+        },
+        components: {
+            'v-a': {
+                template: '<div>Component A</div>'
+            },
+            'v-b': {
+                template: '<div>Component B</div>'
+            }
+        }
+    })
+</script>
+</body>
+</html>

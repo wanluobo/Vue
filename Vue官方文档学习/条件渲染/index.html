@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="vif">
+    <h1 v-if="ok">Yes</h1>
+    <h1 v-else>No</h1>
+    <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+    <div v-if="Math.random() > 0.5">
+        Now you see me
+    </div>
+    <div v-else>
+        Now you don't
+    </div>
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else-if="type === 'C'">
+        C
+    </div>
+    <div v-else>
+        Not A/B/C
+    </div>
+</div>
+<div id="vshow">
+    <template v-if="ok">
+        <h1 v-show="ok">Hello!</h1>
+    </template>
+
+</div>
+</body>
+<script>
+    var vif = new Vue({
+        el: '#vif',
+        data: {
+            ok: true,
+            type:'C'
+        }
+    })
+
+    var vshow=new Vue({
+        el:'#vshow',
+        data:{
+            ok:true
+        }
+    })
+
+
+
+</script>
+</html>
